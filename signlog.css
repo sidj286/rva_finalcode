@@ -1,0 +1,95 @@
+/* Make the logo image bigger but keep its position */
+.logo-marker img {
+  width: 150px;
+  height: auto;
+  display: inline-block;
+  vertical-align: middle;
+}
+ body {
+    background-color: #000;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .reflection {
+    position: relative;
+    font-weight: 600;
+    font-size: 2.5rem;
+    line-height: 1.1;
+    text-shadow: 2px 2px 4px #222, 0 0 1px #4dc0b5;
+  }
+  .reflection::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 98%; /* Move reflection closer to text */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: white;
+    opacity: 0.20;
+    transform: scaleY(-1);
+    filter: blur(2px);
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.7), transparent);
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,0.7), transparent);
+    pointer-events: none;
+  }
+  .logo-marker {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0.5rem;
+    height: 100%;
+    vertical-align: middle;
+  }
+  /* Button base style */
+  .btn-signup {
+    margin-top: 3rem;
+    background-color: #4dc0b5;
+    color: #000;
+    font-weight: 600;
+    padding: 0.8rem 3.5rem;
+    border-radius: 9999px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.125rem;
+    box-shadow: 0 4px 12px rgb(77 192 181 / 0.6);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .btn-signup:hover, .btn-signup:focus {
+    background-color: #36a79c;
+    box-shadow: 0 6px 18px rgb(54 167 156 / 0.9);
+    outline: none;
+  }
+  .login-text {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #999;
+  }
+  .login-text a {
+    color: white;
+    font-weight: 600;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  .login-text a:hover,
+  .login-text a:focus {
+    color: #4dc0b5;
+    outline: none;
+  }
+  @media (min-width: 640px) {
+    .reflection {
+      font-size: 3.5rem;
+    }
+    .btn-signup {
+      font-size: 1.25rem;
+      padding: 1rem 5rem;
+    }
+  }

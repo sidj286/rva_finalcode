@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DepartSure Sign In</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #000000;
+      color: #f5f1f4;
+      font-family:Arial, Helvetica, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    /* Customize placeholder color */
+    ::placeholder {
+      color: #9e9ea7;
+      opacity: 1;
+      font-style: italic;
+    }
+    /* Custom input style to match the design*/
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      background-color: #d4d4d8;
+      border-radius: 0.5rem;
+      padding: 0.75rem 1rem;
+      font-style: italic;
+      color: #121212;
+      font-size: 1rem;
+      outline-offset: 3px;
+      border: none;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    label {
+      font-size: 0.875rem;
+      color: #72cec6;
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+      display: block;
+    }
+
+    .password-wrapper {
+      position: relative;
+      width: 100%;
+    }
+    .toggle-password {
+      position: absolute;
+      right: 0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      color: #4b5563;
+      font-size: 1.1rem;
+      user-select: none;
+    }
+    .checkbox-label {
+      font-size: 0.75rem;
+      margin-left: 0.25rem;
+      color: #f5f1f4;
+      line-height: 1.2;
+    }
+    .checkbox-label a {
+      text-decoration: underline;
+      color: #f5f1f4;
+      font-style: normal;
+      cursor: pointer;
+    }
+    .create-account-btn {
+      background-color: #72cec6;
+      color: #121212;
+      font-weight: 700;
+      padding: 0.75rem 1.75rem;
+      border-radius: 0.75rem;
+      border: none;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s ease;
+      margin-top: 1.75rem;
+      align-self: flex-start;
+    }
+    .create-account-btn:hover,
+    .create-account-btn:focus {
+      background-color: #56b3ad;
+      outline: none;
+    }
+    .login-text {
+      margin-top: 2.5rem;
+      font-size: 0.875rem;
+      text-align: center;
+      color: #f5f1f4;
+    }
+    .login-text a {
+      color: #f5f1f4;
+      font-weight: 700;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    .form-container {
+      max-width: 360px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+</head>
+<body>
+  <main class="form-container" role="main" aria-label="Sign in form for DepartSure">
+    <h1 class="text-4xl font-extrabold mb-8">Sign in to<br />DepartSure</h1>
+
+    <form id="signInForm" novalidate>
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" placeholder="Enter username" autocomplete="username" required aria-required="true" />
+
+      <label for="email" class="mt-6">Email</label>
+      <input type="email" id="email" name="email" placeholder="your@gmail.com" autocomplete="email" required aria-required="true" />
+
+      <label for="password" class="mt-6">Password</label>
+      <div class="password-wrapper">
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Enter password"
+          autocomplete="current-password"
+          required
+          aria-required="true"
+          aria-describedby="togglePasswordDesc"
+        />
+        <button
+          type="button"
+          aria-label="Toggle show password"
+          class="toggle-password"
+          id="togglePasswordBtn"
+          aria-pressed="false"
+        >
+          &#128065;
+        </button>
+      </div>
+
+      <div class="flex items-start mt-6">
+        <input type="checkbox" id="agree" name="agree" required aria-required="true" />
+        <label for="agree" class="checkbox-label">
+          I agree with terms of <a href="#" tabindex="0">service</a> and <a href="#" tabindex="0">Policy</a>.
+        </label>
+      </div>
+
+      <button type="submit" class="create-account-btn" aria-label="Create account">
+        Create Account
+      </button>
+    </form>
+
+    <p class="login-text" aria-live="polite">
+      Already have an account? <a href="#" tabindex="0">Login</a>
+    </p>
+  </main>
+
+  <script>
+    const passwordInput = document.getElementById('password');
+    const togglePasswordBtn = document.getElementById('togglePasswordBtn');
+
+    togglePasswordBtn.addEventListener('click', () => {
+      const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+      passwordInput.setAttribute('type', type);
+      const pressed = togglePasswordBtn.getAttribute('aria-pressed') === 'true';
+      togglePasswordBtn.setAttribute('aria-pressed', !pressed);
+    });
+
+    // Optional: Prevent form submission for demo purpose
+    document.getElementById('signInForm').addEventListener('submit', e => {
+      e.preventDefault();
+      alert('Create Account clicked!');
+
+ <a href="loginpage.html">
+    <button class="btn-signup" aria-label="Sign up for DepartSure">Create account</button>
+  </a>
+
+    });
+  </script>
+</body>
+</html>
+

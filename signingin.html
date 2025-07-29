@@ -7,9 +7,9 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
-      background-color: #000000;
-      color: #f5f1f4;
-      font-family:Arial, Helvetica, sans-serif;
+      background-color: #0f0f0f;
+      color: #f7e7e7;
+      font-family: 'Inter', Arial, Helvetica, sans-serif;
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -27,21 +27,22 @@
     input[type="text"],
     input[type="email"],
     input[type="password"] {
-      background-color: #d4d4d8;
-      border-radius: 0.5rem;
+      background-color: #e3e8e8;
+      border-radius: 0.375rem;
       padding: 0.75rem 1rem;
-      font-style: italic;
-      color: #121212;
+      color: #222;
       font-size: 1rem;
       outline-offset: 3px;
       border: none;
       width: 100%;
       box-sizing: border-box;
+      box-shadow: inset 0 0 5px rgb(0 0 0 / 0.1);
+      transition: box-shadow 0.3s ease;
     }
 
     label {
       font-size: 0.875rem;
-      color: #72cec6;
+      color: #6e848f;
       font-weight: 500;
       margin-bottom: 0.25rem;
       display: block;
@@ -86,7 +87,10 @@
       user-select: none;
       transition: background-color 0.3s ease;
       margin-top: 1.75rem;
-      align-self: flex-start;
+      align-self: center;
+      display: block;
+      font-size: 1.125rem;
+      box-shadow: 0 4px 12px rgb(77 192 181 / 0.6);
     }
     .create-account-btn:hover,
     .create-account-btn:focus {
@@ -97,16 +101,22 @@
       margin-top: 2.5rem;
       font-size: 0.875rem;
       text-align: center;
-      color: #f5f1f4;
+      color: #a1bbc8;
     }
     .login-text a {
-      color: #f5f1f4;
+      color: #499591;
       font-weight: 700;
       text-decoration: underline;
       cursor: pointer;
+      transition: color 0.3s ease;
+    }
+    .login-text a:hover,
+    .login-text a:focus {
+      color: #72cec6;
+      outline: none;
     }
     .form-container {
-      max-width: 360px;
+      max-width: 400px;
       width: 100%;
       display: flex;
       flex-direction: column;
@@ -154,9 +164,13 @@
         </label>
       </div>
 
-      <button type="submit" class="create-account-btn" aria-label="Create account">
-        Create Account
-      </button>
+      <div style="display: flex; justify-content: center; width: 100%;">
+        <a href="loginpage.html">
+          <button type="button" class="create-account-btn" aria-label="Create account">
+            Create Account
+          </button>
+        </a>
+      </div>
     </form>
 
     <p class="login-text" aria-live="polite">
@@ -179,11 +193,11 @@
     document.getElementById('signInForm').addEventListener('submit', e => {
       e.preventDefault();
       alert('Create Account clicked!');
-
+<center>
  <a href="loginpage.html">
-    <button class="btn-signup" aria-label="Sign up for DepartSure">Create account</button>
+     <button class="btn-signup" aria-label="Sign up for DepartSure">Create account</button>
   </a>
-
+</center>
     });
   </script>
 </body>

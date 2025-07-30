@@ -1,0 +1,238 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>DepartSure</title>
+  <style>
+    body {
+      background: #000;
+      color: #f7e7e7;
+      font-family: Arial, Helvetica, sans-serif;
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 32px;
+      border-bottom: 1px solid #e9b6c1;
+      box-sizing: border-box;
+    }
+    h1 {
+      font-weight: bold;
+      font-size: 2rem;
+      margin: 0;
+      color: #f7e7e7;
+    }
+    img.profile {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    main {
+      flex-grow: 1;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      padding: 40px 24px;
+      box-sizing: border-box;
+    }
+    section {
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+      background: #222;
+    }
+    section img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    form {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0,0,0,0.6);
+      border-radius: 12px;
+      padding: 24px;
+      width: 90%;
+      max-width: 400px;
+      box-sizing: border-box;
+      color: #f7e7e7;
+    }
+    label {
+      display: flex;
+      align-items: center;
+      font-size: 1rem;
+      margin-bottom: 12px;
+      font-weight: bold;
+      color: #f7e7e7;
+      user-select: none;
+    }
+    .input-row {
+      display: flex;
+      align-items: center;
+      background: #f7e7e7;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+    input[type="text"] {
+      flex-grow: 1;
+      background: #f7e7e7;
+      color: #222;
+      font-size: 1rem;
+      padding: 12px;
+      border: none;
+      outline: none;
+      box-sizing: border-box;
+    }
+    button.search-btn {
+      background: transparent;
+      color: #222;
+      border: none;
+      padding: 0 16px;
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
+    button.save-btn {
+      margin-top: 16px;
+      background: #4dc0b5;
+      color: #222;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 8px;
+      padding: 12px 0;
+      width: 100%;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button.save-btn:hover {
+      background: #319795;
+    }
+    nav {
+      width: 100%;
+      max-width: 320px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .nav-btn {
+      width: 100%;
+      background: #4dc0b5;
+      color: #222;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 8px;
+      padding: 12px 0;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .nav-btn.origin {
+      background: white;
+      color: #222;
+    }
+    .nav-btn.destination {
+      background: white;
+      color:back;
+      border: 2px solid #f7e7e7;
+    }
+    /* No hover effect for nav-btn */
+    .back-link {
+      margin-top: 24px;
+      color: #f7e7e7;
+      font-size: 1rem;
+      text-align: center;
+      cursor: pointer;
+      text-decoration: underline;
+      user-select: none;
+    }
+    footer {
+      text-align: center;
+      color: #f7e7e7;
+      font-size: 0.85rem;
+      padding: 24px 0 0 0;
+      border-top: 1px solid #e9b6c1;
+      margin-top: 32px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>DepartSure</h1>
+    <img
+      alt="Profile picture of a man with short hair wearing a blue and yellow shirt"
+      class="profile"
+      height="48"
+      src="image.png"
+      width="48"
+    />
+  </header>
+  <main>
+    <section>
+      <div style="position: relative; width: 100%; height: 400px;">
+        <iframe
+          class="map"
+          width="100%"
+          height="400"
+          frameborder="0"
+          scrolling="no"
+          marginheight="0"
+          marginwidth="0"
+          id="gmap_canvas"
+          src="https://maps.google.com/maps?width=1920&height=508&hl=en&q=%20Bogo+()&t=&z=12&ie=UTF8&iwloc=B&output=embed">
+        </iframe>
+        <div class="calendar-overlay" style="position: absolute; top: 32px; left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.7); border-radius: 16px; padding: 20px 24px; width: 340px; color: #222; font-family: Arial, Helvetica, sans-serif; font-size: 0.95rem; box-shadow: 0 4px 16px rgba(0,0,0,0.2);">
+          <div style="font-size: 1.1rem; font-weight: bold; margin-bottom: 10px; text-align: center;">July 2025</div>
+          <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; font-size: 0.85rem; font-weight: bold; color: #666; user-select: none; margin-bottom: 4px; text-align: center;">
+            <div>SUN</div><div>MON</div><div>TUE</div><div>WED</div><div>THU</div><div>FRI</div><div>SAT</div>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; font-size: 0.85rem; color: #222; margin-bottom: 8px; text-align: center;">
+            <div></div><div></div><div>29</div><div>30</div><div>1</div><div>2</div><div>3</div>
+            <div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div>
+            <div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div>
+            <div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div>
+            <div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div>
+          </div>
+          <div style="margin-top: 12px; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; color: #555;">
+            <label for="time" style="font-weight: bold; color: #222;">Time</label>
+            <input id="time" type="time" value="09:00" style="border-radius: 4px; border: 1px solid #ccc; padding: 2px 6px; font-size: 0.9rem; font-weight: bold; color: #222;" />
+            <button type="button" style="border-radius: 4px; border: 1px solid #ccc; background: #eee; color: #222; font-size: 0.8rem; font-weight: bold; padding: 2px 8px; cursor: pointer;">AM</button>
+            <button type="button" style="border-radius: 4px; border: 1px solid #ccc; background: #eee; color: #222; font-size: 0.8rem; font-weight: bold; padding: 2px 8px; cursor: pointer;">PM</button>
+          </div>
+          <div style="margin-top: 12px; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; color: #555;">
+            <label for="subject" style="font-weight: bold; color: #222;">Subject</label>
+            <input id="subject" type="text" value="HCI" style="border-radius: 4px; border: 1px solid #ccc; padding: 2px 6px; font-size: 0.9rem; font-weight: bold; color: #222;" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <nav>
+      <button class="nav-btn" type="button">Class Schedule</button>
+      <button class="nav-btn origin" type="button" onclick="window.location.href='hp1_2.html'">Origin</button>
+      <button class="nav-btn destination" type="button">Destination</button>
+      <div class="back-link" role="button" tabindex="0" onclick="window.location.href='hp1.html'">Back</div>
+    </nav>
+  </main>
+  <footer>
+    &copy; 2024 DepartSure. All rights reserved.
+  </footer>
+</body>
+</body>
+</html>
